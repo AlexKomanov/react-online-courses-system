@@ -37,9 +37,9 @@ const courses = [
     },
     {
       id: 2,
-      title: "Playwright for Beginners (Hebrew)",
+      title: "Playwright for Beginners (Hebrew) - UNDER CONSTRUCTION",
       slug: "playwright-beginners",
-      description: "Cras ut sem eu ligula luctus ornare quis nec arcu.",
+      description: "UNDER CONSTRUCTION",
       lessons: [
         {
           id: 1,
