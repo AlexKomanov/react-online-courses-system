@@ -8,12 +8,13 @@ import CardMedia from '@mui/material/CardMedia';
 
 const CourseSummary = (props) => {
     return (
+        <>
         <Card sx={{ maxWidth: 600, m: 'auto', mt: 2 }}>
-            <CardMedia
+            {/* <CardMedia
                 component="img"
                 height="140"
                 image="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210210175213/JavaScriptTutorial.png"
-            />
+            /> */}
             <CardContent >
 
                 <Typography gutterBottom variant="h5" component="div" fontFamily="serif" fontWeight="600">
@@ -31,7 +32,7 @@ const CourseSummary = (props) => {
 
         </Card>
 
-
+        </>
     )
 }
 
