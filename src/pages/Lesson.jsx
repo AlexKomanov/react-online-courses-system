@@ -9,7 +9,7 @@ import {ImGoogleDrive} from 'react-icons/im'
 const Lesson = () => {
 
     const {courseId, lessonId } = useParams()
-    // debugger
+
     const course = courses.find(course => course.slug === courseId);
     const lesson = course.lessons.find(lesson => lesson.id === parseFloat(lessonId));
     
