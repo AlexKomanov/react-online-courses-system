@@ -20,9 +20,9 @@ const Header = () => {
                 <Toolbar>
                     <ComputerOutlinedIcon size="large" color='inherit' sx={{ mr: 2 }} />
 
-                    <Typography variant="h6" noWrap component="div"
+                    <Typography variant="h6" component="div"
                         sx={{
-                            mr: 2, fontFamily: 'serif', fontSize: {md: 23, xs: 15},
+                            mr: 2, fontFamily: 'serif', fontSize: {md: 23, xs: 16},
                             fontWeight: 600, letterSpacing: '.2rem',
                             flexGrow: 1, color: 'inherit',
                             
