@@ -2,13 +2,14 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import LessonSummary from '../components/LessonSummary'
 import courses from './courses'
-
+import Box from '@mui/material/Box';
 const Course = () => {
 
     const {courseId } = useParams()
     const course = courses.find(course => course.slug === courseId)
 
   return (
+    <Box sx={{ m: 'auto', mt: 3, mb:3, marginLeft: {xs: 3, md: 'inherit'}, marginRight:  {xs: 3, md: 'inherit'}}}>
     <div className='course page'>
         <header>
             <p>
@@ -25,6 +26,7 @@ const Course = () => {
             ))}
         </div>
     </div>
+    </Box>
   )
 }
 

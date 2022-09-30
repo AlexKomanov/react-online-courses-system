@@ -3,16 +3,17 @@ import ReactPlayer from 'react-player'
 import { Link, useParams } from 'react-router-dom'
 import CompleteAndContinueButton from '../components/CompleteAndContinueButton'
 import courses from './courses'
-import {ImGoogleDrive} from 'react-icons/im'
+import { ImGoogleDrive } from 'react-icons/im'
+import Box from '@mui/material/Box';
 
 
 const Lesson = () => {
 
-    const {courseId, lessonId } = useParams()
+  const { courseId, lessonId } = useParams()
 
-    const course = courses.find(course => course.slug === courseId);
-    const lesson = course.lessons.find(lesson => lesson.id === parseFloat(lessonId));
-    
+  const course = courses.find(course => course.slug === courseId);
+  const lesson = course.lessons.find(lesson => lesson.id === parseFloat(lessonId));
+
 
   const nextLessonId = () => {
     const currentIndex = course.lessons.indexOf(lesson)
@@ -21,25 +22,28 @@ const Lesson = () => {
   }
 
   return (
-    <div className='lesson page'>
-      <header>
-        <p>
-        {/* <Link to={'/courses/' + course.id}>Back to '{course.title}'</Link> */}
-        <Link to={'/courses/' + course.slug}>Back to course menu</Link>
-        </p>
-        <h1>{lesson.id}. {lesson.title}</h1>
-      </header>
-      <div className="content">
-        <ReactPlayer url={lesson.youtubeLink} controls={true} />
-        <CompleteAndContinueButton courseId={courseId} lessonId={nextLessonId()} />
+    <Box sx={{ m: 'auto', mt: 3, mb: 3, marginLeft: { xs: 3, md: 'inherit' }, marginRight: { xs: 3, md: 'inherit' } }}>
+      <div className='lesson page'>
+        <header>
+          <p>
+            {/* <Link to={'/courses/' + course.id}>Back to '{course.title}'</Link> */}
+            <Link to={'/courses/' + course.slug}>Back to course menu</Link>
+          </p>
+          <h1>{lesson.id}. {lesson.title}</h1>
+        </header>
+        
+        <div className="content">
+          <ReactPlayer url={lesson.youtubeLink} controls={true} style={{maxWidth: '98%', margin: 'auto'}}/>
+          <CompleteAndContinueButton courseId={courseId} lessonId={nextLessonId()} />
+        </div>
+        
+        <div>
+          <a href={`${lesson.presentation}`} target='_blank'>
+            <button className='button presentation'>Link to presentation <ImGoogleDrive /></button>
+          </a>
+        </div>
       </div>
-
-      <div>
-      <a href={`${lesson.presentation}`} target='_blank'>  
-      <button className='button presentation'>Link to presentation <ImGoogleDrive /></button>
-      </a>     
-      </div>
-    </div>
+    </Box>
   )
 }
 
