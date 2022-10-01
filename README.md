@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<img src="img/whole-project.png" width="600">
+<img src="src/img/whole-project.png" width="600">
 
 ## Application 
 [Demo of application](https://geek-of-automation.onrender.com/)
