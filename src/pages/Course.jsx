@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import LessonSummary from '../components/LessonSummary'
-import courses from './courses'
+// import courses from './courses'
 import Box from '@mui/material/Box';
-const Course = () => {
+import Typography from '@mui/material/Typography';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+
+const Course = ({courses}) => {
 
     const {courseId } = useParams()
     const course = courses.find(course => course.slug === courseId)
@@ -13,7 +16,16 @@ const Course = () => {
     <div className='course page'>
         <header>
             <p>
-                <Link to={'/'}>Back to Courses</Link>
+                {/* <Link to={'/'}>Back to Courses</Link> */}
+                <Breadcrumbs aria-label="breadcrumb">
+              <Link to={"/"}>
+              <Typography>home</Typography>
+              </Link >
+              
+              <Typography>{course.slug}</Typography>
+            
+            
+            </Breadcrumbs>
             </p>
             <h1>{course.title}</h1>
             <p>{course.description}</p>
