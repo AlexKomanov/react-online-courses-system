@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import CourseSummary from '../components/CourseSummary'
-// import courses from './courses'
+import courses from './courses'
 import Typography from '@mui/material/Typography';
 // import { db } from '../firebase-config';
 // import { collection, getDocs} from 'firebase/firestore';
 
-const Home = ({courses}) => {
+const Home = () => {
   // const [courses, setCourses] = useState([]);
   // const coursesCollection = collection(db, 'Courses')
 

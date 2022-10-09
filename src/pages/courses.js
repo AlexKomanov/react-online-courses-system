@@ -4,6 +4,7 @@ const courses = [
       title: "Javascript for Beginners (Hebrew)",
       description: "Course that covers basics of the Javascript. From scratch. In Hebrew.",
       slug: "javascript-beginners",
+      courseAvatar: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210210175213/JavaScriptTutorial.png",
       lessons: [
         {
           id: 1,
@@ -40,6 +41,7 @@ const courses = [
       title: "Playwright for Beginners (Hebrew) - UNDER CONSTRUCTION",
       slug: "playwright-beginners",
       description: "UNDER CONSTRUCTION",
+      courseAvatar: "https://images.ctfassets.net/23aumh6u8s0i/3k1vjO4jhrr2rjm73AtUaA/b835bbcb7c00f9dd062973b0863959d3/playwright-sharp.png",
       lessons: [
         {
           id: 1,
@@ -72,6 +74,7 @@ const courses = [
       title: "Playwtight - Useful Updates",
       slug: "playwright-useful-updates",
       description: "UNDER CONSTRUCTION",
+      courseAvatar: "https://pccyfs.org/wp-content/uploads/2021/12/News.jpg",
       lessons: [
         {
           id: 1,

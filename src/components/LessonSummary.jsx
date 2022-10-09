@@ -14,7 +14,7 @@ const LessonSummary = (props) => {
             <CardMedia
                 component="img"
                 height="100"
-                image="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210210175213/JavaScriptTutorial.png"
+                image={`${props.course.courseAvatar}`}
             />
             <CardContent >
 
