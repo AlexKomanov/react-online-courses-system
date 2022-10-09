@@ -25,7 +25,7 @@ const App = () => {
 }
 
   const [courses, setCourses] = useState(['']);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const coursesCollection = collection(db, 'Courses')
 
   // TODO - Check removing firestore query
@@ -35,12 +35,12 @@ const App = () => {
     
   // };
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    fetchData('courses');
-    // TODO - Check removing firestore query
-    // getCourses();
-  }, [])
+  //   // fetchData('courses');
+  //   // TODO - Check removing firestore query
+  //   // getCourses();
+  // }, [])
 
   if(loading) {
     return (
@@ -65,9 +65,9 @@ const App = () => {
 
   <Header />
   <Routes>
-    <Route path="/" element={<Home courses={courses}/>} />
-    <Route path="/courses/:courseId" element={<Course courses={courses} />} />
-    <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson courses={courses}/>} />
+    <Route path="/" element={<Home />} />
+    <Route path="/courses/:courseId" element={<Course />} />
+    <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson />} />
   </Routes>
 </main>
     </div>
