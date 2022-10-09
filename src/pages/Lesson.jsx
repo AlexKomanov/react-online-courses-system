@@ -2,14 +2,14 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import { Link, useParams } from 'react-router-dom'
 import CompleteAndContinueButton from '../components/CompleteAndContinueButton'
-// import courses from './courses'
+import courses from './courses'
 import { ImGoogleDrive } from 'react-icons/im'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 
 
-const Lesson = ({ courses }) => {
+const Lesson = () => {
 
   const { courseId, lessonId } = useParams()
 

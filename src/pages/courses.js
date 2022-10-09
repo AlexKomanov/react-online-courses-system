@@ -33,6 +33,13 @@ const courses = [
           description: "Second part of variables",
           youtubeLink: "https://youtu.be/z9gs-wkRvz8",
           presentation: "https://docs.google.com/presentation/d/1sgekxE0tqiUSQ8xdo-h3PTwxMSXhagOOx_QXKd1Gtdk/edit?usp=sharing"
+        },
+        {
+          id: 4,
+          title: "Primitive Types in JS",
+          description: "Covers primitive types in JS language",
+          youtubeLink: "https://youtu.be/lsnhQKp-osU",
+          presentation: "https://docs.google.com/presentation/d/1o_UosnbTDtYKRoN2aavWvWHbw7zsSxXtdkFRS9uaQdU/edit?usp=sharing"
         }
       ]
     },
