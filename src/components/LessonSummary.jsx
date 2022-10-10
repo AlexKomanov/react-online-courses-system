@@ -8,8 +8,8 @@ import CardMedia from '@mui/material/CardMedia';
 
 const LessonSummary = (props) => {
     return (
-        
-<Card sx={{ maxWidth: 500, m: 'auto', mt: 3, mb: 3}}>
+
+        <Card sx={{ maxWidth: 500, m: 'auto', mt: 3, mb: 3 }}>
             <CardMedia
                 component="img"
                 height="100"
@@ -19,22 +19,22 @@ const LessonSummary = (props) => {
 
                 <Typography gutterBottom variant="h5" component="div" fontFamily="serif" fontWeight="600">
                     <Link to={`/courses/${props.courseId}/lessons/${props.lesson.id}`} underline="none" color="inherit">
-                    {props.lesson.id}. {props.lesson.title}
+                        {props.lesson.id}. {props.lesson.title}
                     </Link>
                 </Typography>
 
                 <Typography variant="h6" color="text.secondary" component="div" fontFamily="serif" >
-                    <Link to={`/courses/${props.courseId}/lessons/${props.lesson.id}`}  underline="none" color="inherit">
-                    {props.lesson.description}
+                    <Link to={`/courses/${props.courseId}/lessons/${props.lesson.id}`} underline="none" color="inherit">
+                        {props.lesson.description}
                     </Link>
                 </Typography>
             </CardContent>
 
         </Card>
-            
-  
 
-    
+
+
+
     )
 }
 

@@ -1,21 +1,21 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const CompleteAndContinueButton = ( props ) => {
+const CompleteAndContinueButton = (props) => {
 
-    const lessonId = props.lessonId;
-    const navigate = useNavigate()
-    const completeAndContinue = () => {
-        navigate(`/courses/${props.courseId}/lessons/${props.lessonId}`)
-    }
-    const completeAndFinish = () => {
-      navigate(`/courses/${props.courseId}`)
+  const lessonId = props.lessonId;
+  const navigate = useNavigate()
+  const completeAndContinue = () => {
+    navigate(`/courses/${props.courseId}/lessons/${props.lessonId}`)
+  }
+  const completeAndFinish = () => {
+    navigate(`/courses/${props.courseId}`)
   }
 
   return (
-    lessonId !== 1 
-    ? <button className='button primary' onClick={completeAndContinue}>Complete and Continue</button>
-    : <button className='button primary' onClick={completeAndFinish}>FINISH COURSE</button>
+    lessonId !== 1
+      ? <button className='button primary' onClick={completeAndContinue}>Complete and Continue</button>
+      : <button className='button primary' onClick={completeAndFinish}>FINISH COURSE</button>
   )
 }
 

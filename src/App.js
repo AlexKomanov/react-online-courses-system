@@ -1,75 +1,59 @@
+import * as React from 'react';
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Course from "./pages/Course";
 import Home from "./pages/Home";
 import Lesson from "./pages/Lesson";
-import { db } from './firebase-config';
-import { collection, getDocs} from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import * as AWS from 'aws-sdk'
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
 const App = () => {
+  const [courses, setCourses] = useState(['']);
+  const [loading, setLoading] = useState(true)
+
+  /**
+   * Initializing AWS DynamoDB Client
+   */
   const docClient = new AWS.DynamoDB.DocumentClient()
   const fetchData = (tableName) => {
     let params = {
-        TableName: tableName
+      TableName: tableName
     }
 
     docClient.scan(params, (err, data) => {
-            setCourses(data.Items)
-        
+      setCourses(data.Items)
+
     })
     setLoading(false);
-}
-
-  const [courses, setCourses] = useState(['']);
-  const [loading, setLoading] = useState(true)
-  
-  // TODO - Check removing firestore query
-  // const coursesCollection = collection(db, 'Courses')
-  // const getCourses = async () => {
-  //   const data = await getDocs(coursesCollection);
-  //   setCourses(data.docs.map((doc) => ({...doc.data()})));
-    
-  // };
+  }
 
   useEffect(() => {
-    
+
     fetchData('courses');
-    // TODO - Check removing firestore query
-    // getCourses();
   }, [])
 
-  if(loading) {
+  if (loading) {
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100vh',
-        }}
-      >
-        Loading the data
-      </div>
+      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center' }} spacing={2} direction="row">
+        <CircularProgress />
+      </Box>
     )
   }
 
-
   return (
     <div className="App">
-<main>
-
-  <Header />
-  <Routes>
-    <Route path="/" element={<Home courses={courses}/>} />
-    <Route path="/courses/:courseId" element={<Course courses={courses}/>} />
-    <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson courses={courses}/>} />
-  </Routes>
-</main>
+      <main>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home courses={courses} />} />
+          <Route path="/courses/:courseId" element={<Course courses={courses} />} />
+          <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson courses={courses} />} />
+        </Routes>
+      </main>
     </div>
   );
 }

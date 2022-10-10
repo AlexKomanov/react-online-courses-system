@@ -2,14 +2,13 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import { Link, useParams } from 'react-router-dom'
 import CompleteAndContinueButton from '../components/CompleteAndContinueButton'
-// import courses from './courses'
 import { ImGoogleDrive } from 'react-icons/im'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 
 
-const Lesson = ({courses}) => {
+const Lesson = ({ courses }) => {
 
   const { courseId, lessonId } = useParams()
 
@@ -32,10 +31,10 @@ const Lesson = ({courses}) => {
             {/* <Link to={'/courses/' + course.slug}>Back to course menu</Link> */}
             <Breadcrumbs aria-label="breadcrumb">
               <Link to={"/"}>
-              <Typography>home</Typography>
+                <Typography>home</Typography>
               </Link >
               <Link to={'/courses/' + course.slug}>
-              <Typography>{course.slug}</Typography>
+                <Typography>{course.slug}</Typography>
               </Link>
               <Typography>lesson {lesson.id}</Typography>
             </Breadcrumbs>
