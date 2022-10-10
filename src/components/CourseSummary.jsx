@@ -9,7 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 const CourseSummary = (props) => {
     return (
         <>
-        <Card sx={{ maxWidth: 600, m: 'auto', mt: 3, mb:3, marginLeft: {xs: 3, md: 'inherit'}, marginRight:  {xs: 3, md: 'inherit'}}}>
+        <Card sx={{ maxWidth: 600, m: 'auto', mt: 3, mb:3, marginLeft: {xs: 3, md: 'inherit'}, marginRight:  {xs: 3, md: 'inherit'}}} >
             <CardMedia
                 component="img"
                 height="140"

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import CourseSummary from '../components/CourseSummary'
-import courses from './courses'
+// import courses from './courses'
 
 
-const Home = () => {
+const Home = ({courses}) => {
 
   return (
     <div className='home page'>
@@ -11,7 +11,7 @@ const Home = () => {
             <h1>Online Courses</h1>
         </header>
         {courses.map((course) => (
-            <CourseSummary course={course} key={course.id}/>
+            <CourseSummary course={course} key={`${course.id}`}/>
         ))}
     </div>
   )

@@ -12,7 +12,7 @@ const configuration = {
 
 }
 
-// AWS.config.update(configuration);
+AWS.config.update(configuration);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

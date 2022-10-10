@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import LessonSummary from '../components/LessonSummary'
-import courses from './courses'
+// import courses from './courses'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 
-const Course = () => {
+const Course = ({courses}) => {
 
     const {courseId } = useParams()
     const course = courses.find(course => course.slug === courseId)

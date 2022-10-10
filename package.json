@@ -1,7 +1,6 @@
 {
   "name": "react-course",
   "version": "0.1.0",
-  "homepage": "https://geek-of-automation.onrender.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
