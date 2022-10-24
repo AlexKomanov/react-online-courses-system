@@ -1,17 +1,18 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLoaderData} from 'react-router-dom'
 import CompleteAndContinueButton from '../components/CompleteAndContinueButton'
-// import courses from './courses'
 import { ImGoogleDrive } from 'react-icons/im'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebase-config'
 
 
-const Lesson = ({courses}) => {
+const Lesson = () => {
 
-  const { courseId, lessonId } = useParams()
+  const { courses, courseId, lessonId } = useLoaderData()
 
   const course = courses.find(course => course.slug === courseId);
   const lesson = course.lessons.find(lesson => lesson.id === parseFloat(lessonId));
@@ -58,4 +59,17 @@ const Lesson = ({courses}) => {
   )
 }
 
-export default Lesson
+const lessonLoader = async ({ params }) => {
+  const courseId = params.courseId;
+  const lessonId = params.lessonId;
+
+  const coursesCollection = collection(db, 'Courses')
+
+  const data = await getDocs(coursesCollection);
+
+  const courses = data.docs.map((doc) => ({ ...doc.data() }));
+  
+  return {courses, courseId, lessonId}
+}
+
+export { Lesson, lessonLoader };
