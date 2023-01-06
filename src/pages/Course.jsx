@@ -1,12 +1,15 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLoaderData, useParams } from 'react-router-dom'
 import LessonSummary from '../components/LessonSummary'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { fetchData } from '../AWSFunctions';
 
-const Course = ({ courses }) => {
+const Course = () => {
 
+  const courses = useLoaderData();
+  
   const { courseId } = useParams()
   const course = courses.find(course => course.slug === courseId)
 
@@ -42,3 +45,9 @@ const Course = ({ courses }) => {
 }
 
 export default Course
+
+export const courseLoader = async() => {
+
+  const data = await fetchData();
+  return data;
+}

@@ -7,9 +7,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 
+import { useLoaderData } from 'react-router-dom'
+import { fetchData } from '../AWSFunctions'
 
-const Lesson = ({ courses }) => {
 
+const Lesson = ({ }) => {
+
+  const courses = useLoaderData();
   const { courseId, lessonId } = useParams()
 
   const course = courses.find(course => course.slug === courseId);
@@ -58,3 +62,11 @@ const Lesson = ({ courses }) => {
 }
 
 export default Lesson
+
+export const lessonLoader = async () => {
+  
+  const data = await fetchData();
+  
+  return data;
+;
+}
