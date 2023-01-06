@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Routes } from "react-router-dom";
+import { Route, createBrowserRouter, createRoutesFromElements, Outlet, RouterProvider } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Course from "./pages/Course";
@@ -12,8 +12,21 @@ import Box from '@mui/material/Box';
 
 
 const App = () => {
+
   const [courses, setCourses] = useState(['']);
   const [loading, setLoading] = useState(true)
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<Root />}>
+        <Route index element={<Home courses={courses} />} />
+        <Route path="/courses/:courseId" element={<Course courses={courses} />} />
+        <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson courses={courses} />} />
+      </Route>
+    )
+  )
+
+
 
   /**
    * Initializing AWS DynamoDB Client
@@ -47,15 +60,20 @@ const App = () => {
   return (
     <div className="App">
       <main>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home courses={courses} />} />
-          <Route path="/courses/:courseId" element={<Course courses={courses} />} />
-          <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson courses={courses} />} />
-        </Routes>
+        {console.log('app', courses)}
+        <RouterProvider router={router} />
       </main>
     </div>
   );
+}
+
+const Root = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  )
 }
 
 export default App;
