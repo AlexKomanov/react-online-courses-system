@@ -1,20 +1,11 @@
 import * as React from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements, Outlet, RouterProvider } from "react-router-dom";
-import Footer from "./components/Footer";
+import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Course, { courseLoader } from "./pages/Course";
 import Home, { allCoursesLoader } from "./pages/Home";
 import Lesson, { lessonLoader } from "./pages/Lesson";
-import { useEffect, useState } from "react";
-import * as AWS from 'aws-sdk'
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-
 
 const App = () => {
-
-  const [courses, setCourses] = useState(['']);
-  const [loading, setLoading] = useState(true)
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -26,26 +17,10 @@ const App = () => {
     )
   )
 
-
-
-  
-  // const docClient = new AWS.DynamoDB.DocumentClient()
-  // const fetchData = (tableName) => {
-  //   let params = {
-  //     TableName: tableName
-  //   }
-
-  //   docClient.scan(params, (err, data) => {
-  //     setCourses(data.Items)
-
-  //   })
-  //   setLoading(false);
-  // }
-
-  // useEffect(() => {
-
-  //   fetchData('courses');
-  // }, [])
+      
+  /**
+   * TODO: Check if needed
+   */
 
   // if (loading) {
   //   return (
@@ -58,7 +33,6 @@ const App = () => {
   return (
     <div className="App">
       <main>
-        {console.log('app', courses)}
         <RouterProvider router={router} />
       </main>
     </div>
