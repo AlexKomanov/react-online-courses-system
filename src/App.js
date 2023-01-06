@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Course from "./pages/Course";
 import Home from "./pages/Home";
-import Lesson from "./pages/Lesson";
+import Lesson, { lessonLoader } from "./pages/Lesson";
 import { useEffect, useState } from "react";
 import * as AWS from 'aws-sdk'
 import CircularProgress from '@mui/material/CircularProgress';
@@ -21,7 +21,7 @@ const App = () => {
       <Route path='/' element={<Root />}>
         <Route index element={<Home courses={courses} />} />
         <Route path="/courses/:courseId" element={<Course courses={courses} />} />
-        <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson courses={courses} />} />
+        <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson />} loader={lessonLoader}/>
       </Route>
     )
   )
