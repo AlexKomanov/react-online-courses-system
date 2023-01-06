@@ -1,9 +1,13 @@
 import React from 'react'
+import { useLoaderData } from 'react-router-dom'
+import { fetchData } from '../AWSFunctions'
 import CourseSummary from '../components/CourseSummary'
 
 
-const Home = ({ courses }) => {
+const Home = () => {
 
+  const courses = useLoaderData();
+  
   return (
     <div className='home page'>
       <header>
@@ -17,3 +21,8 @@ const Home = ({ courses }) => {
 }
 
 export default Home
+
+export const coursesLoader = async() => {
+  const data = await fetchData();
+  return data;
+}

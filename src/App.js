@@ -3,7 +3,7 @@ import { Route, createBrowserRouter, createRoutesFromElements, Outlet, RouterPro
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Course from "./pages/Course";
-import Home from "./pages/Home";
+import Home, { coursesLoader } from "./pages/Home";
 import Lesson, { lessonLoader } from "./pages/Lesson";
 import { useEffect, useState } from "react";
 import * as AWS from 'aws-sdk'
@@ -19,7 +19,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<Root />}>
-        <Route index element={<Home courses={courses} />} />
+        <Route index element={<Home />} loader={coursesLoader} />
         <Route path="/courses/:courseId" element={<Course courses={courses} />} />
         <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson />} loader={lessonLoader}/>
       </Route>
@@ -28,34 +28,32 @@ const App = () => {
 
 
 
-  /**
-   * Initializing AWS DynamoDB Client
-   */
-  const docClient = new AWS.DynamoDB.DocumentClient()
-  const fetchData = (tableName) => {
-    let params = {
-      TableName: tableName
-    }
+  
+  // const docClient = new AWS.DynamoDB.DocumentClient()
+  // const fetchData = (tableName) => {
+  //   let params = {
+  //     TableName: tableName
+  //   }
 
-    docClient.scan(params, (err, data) => {
-      setCourses(data.Items)
+  //   docClient.scan(params, (err, data) => {
+  //     setCourses(data.Items)
 
-    })
-    setLoading(false);
-  }
+  //   })
+  //   setLoading(false);
+  // }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    fetchData('courses');
-  }, [])
+  //   fetchData('courses');
+  // }, [])
 
-  if (loading) {
-    return (
-      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center' }} spacing={2} direction="row">
-        <CircularProgress />
-      </Box>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center' }} spacing={2} direction="row">
+  //       <CircularProgress />
+  //     </Box>
+  //   )
+  // }
 
   return (
     <div className="App">
