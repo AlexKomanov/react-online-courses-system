@@ -7,7 +7,7 @@ import CourseSummary from '../components/CourseSummary'
 const Home = () => {
 
   const courses = useLoaderData();
-  
+
   return (
     <div className='home page'>
       <header>
@@ -22,7 +22,7 @@ const Home = () => {
 
 export default Home
 
-export const coursesLoader = async() => {
+export const allCoursesLoader = async() => {
   const data = await fetchData();
   return data;
 }

@@ -14,8 +14,6 @@ import { fetchData } from '../AWSFunctions'
 const Lesson = ({ }) => {
 
   const courses = useLoaderData();
-  console.log('lesson', courses)
-
   const { courseId, lessonId } = useParams()
 
   const course = courses.find(course => course.slug === courseId);

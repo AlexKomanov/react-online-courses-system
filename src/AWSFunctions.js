@@ -22,6 +22,7 @@ export const fetchData = async () => {
 
     let data = await docClient.scan(params).promise();
     const items = data.Items.map((item) => { return item })
+    console.log('items', items)
     return items;
 
 }
