@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createHashRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Course, { courseLoader } from "./pages/Course";
 import Home, { allCoursesLoader } from "./pages/Home";
@@ -7,10 +7,10 @@ import Lesson, { lessonLoader } from "./pages/Lesson";
 
 const App = () => {
 
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <Route path='/' element={<Root />}>
-        <Route index element={<Home />} loader={allCoursesLoader} />
+        <Route  index element={<Home />} loader={allCoursesLoader} />
         <Route path="/courses/:courseId" element={<Course />} loader={courseLoader}/>
         <Route path="/courses/:courseId/lessons/:lessonId" element={<Lesson />} loader={lessonLoader}/>
       </Route>
